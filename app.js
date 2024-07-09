@@ -9,10 +9,21 @@ const corsOptions = require("./constants/config.js");
 // routes import
 const userRoutes = require("./routes/user.routes.js");
 
-
 const app = express();
 app.use(cookieParser());
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:4173",
+      "https://noxweatherfrontend.vercel.app/",
+      "*",
+      process.env.CLIENT_URL,
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 dotenv.config({
   path: "./.env",
@@ -26,9 +37,7 @@ mongoose
     console.log("Connected to database successfully!");
 
     app.listen(process.env.port, () => {
-      console.log(
-        `Sever is running at port: ${process.env.port} `
-      );
+      console.log(`Sever is running at port: ${process.env.port} `);
     });
 
     app.get("/", (req, res) => {
@@ -40,4 +49,3 @@ mongoose
   });
 
 app.use("/api/v1/user", userRoutes);
-
