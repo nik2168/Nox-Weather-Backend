@@ -13,7 +13,7 @@ const app = express();
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://noxweatherfrontend.vercel.app/",
+    origin: "https://nox-weather-frontend.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD"],
     credentials: true,
   })
