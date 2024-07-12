@@ -11,7 +11,7 @@ const userRoutes = require("./routes/user.routes.js");
 
 const app = express();
 app.use(cookieParser());
-app.use(cors(corsOptions));
+app.use(cors());
 
 dotenv.config({
   path: "./.env",
