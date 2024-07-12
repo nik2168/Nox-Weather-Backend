@@ -10,8 +10,8 @@ const corsOptions = require("./constants/config.js");
 const userRoutes = require("./routes/user.routes.js");
 
 const app = express();
-app.use(cookieParser(corsOptions));
-app.use(cors());
+app.use(cookieParser());
+app.use(cors(corsOptions));
 
 dotenv.config({
   path: "./.env",
