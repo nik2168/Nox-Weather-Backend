@@ -10,7 +10,7 @@ const corsOptions = require("./constants/config.js");
 const userRoutes = require("./routes/user.routes.js");
 
 const app = express();
-app.use(cookieParser());
+app.use(cookieParser(corsOptions));
 app.use(cors());
 
 dotenv.config({
