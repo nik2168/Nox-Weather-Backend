@@ -6,7 +6,7 @@ const corsOptions = {
   //   "https://noxweatherfrontend.vercel.app/",
   //   process.env.CLIENT_URL,
   // ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD"],
   credentials: true,
 };
 

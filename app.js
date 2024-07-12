@@ -3,7 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
-const cors = require('cors')
+const cors = require("cors");
 const corsOptions = require("./constants/config.js");
 
 // routes import
@@ -11,7 +11,13 @@ const userRoutes = require("./routes/user.routes.js");
 
 const app = express();
 app.use(cookieParser());
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: "https://noxweatherfrontend.vercel.app/",
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD"],
+    credentials: true,
+  })
+);
 
 dotenv.config({
   path: "./.env",
@@ -29,7 +35,7 @@ mongoose
     });
 
     app.get("/", (req, res) => {
-      res.send("Hello world !");
+      res.send("Hello Guys !");
     });
   })
   .catch((err) => {
